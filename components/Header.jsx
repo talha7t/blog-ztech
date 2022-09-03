@@ -14,19 +14,18 @@ function Header() {
         <div className="md:float-left block">
           <Link href="/">
             <span className="cursor-pointer font-bold text-4xl text-white">
-              ZTech
+              Graph CMS
             </span>
           </Link>
-          {/* change to lg:contents if want to show links on large screens only */}
-          <div className="hidden md:float-left md:contents">
-            {categories.map((category) => (
-              <Link key={category.slug} href={`/category/${category.slug}`}>
-                <span className="md:float-right mt-2 align-middle text-black ml-4 font-semibold cursor-pointer">
-                  {category.name}
-                </span>
-              </Link>
-            ))}
-          </div>
+        </div>
+        <div className="hidden md:float-left md:contents">
+          {categories.map((category, index) => (
+            <Link key={index} href={`/category/${category.slug}`}>
+              <span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">
+                {category.name}
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
