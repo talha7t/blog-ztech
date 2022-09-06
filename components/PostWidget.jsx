@@ -5,19 +5,17 @@ import moment from "moment";
 import { getRecentPosts, getSimilarPosts } from "../services";
 
 function PostWidgets({ categories, slug }) {
-  const [relatedPosts, setReatedPosts] = useState([]);
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   useEffect(() => {
     if (slug) {
-      getSimilarPosts(categories, slug).then((result) =>
-        setReatedPosts(result)
+      getSimilarPosts(slug, categories).then((result) =>
+        setRelatedPosts(result)
       );
     } else {
-      getRecentPosts().then((result) => setReatedPosts(result));
+      getRecentPosts().then((result) => setRelatedPosts(result));
     }
   }, [slug, categories]);
-
-  console.log(relatedPosts);
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
